@@ -6,7 +6,7 @@ client = TwitterClient.new
 
 while true do
   tweets = client.find_tweets_at_fwdbot
-  tweets.map{|t| [t.text.downcase, t.from]}.each do |tweet, from|
+  tweets.map{|t| [t.text.downcase, "@#{t.from}"]}.each do |tweet, from|
     if (tweet.include?("forward"))
       robot.forward
       client.update("Moving forward", from)
