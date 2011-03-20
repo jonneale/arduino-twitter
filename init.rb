@@ -1,5 +1,5 @@
-require 'robot'
-require 'twitter_client'
+require File.join(File.dirname(__FILE__), *%w[lib robot])
+require File.join(File.dirname(__FILE__), *%w[lib twitter_client])
 
 robot = Robot.new
 client = TwitterClient.new
