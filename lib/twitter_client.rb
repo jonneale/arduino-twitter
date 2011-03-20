@@ -5,10 +5,10 @@ class TwitterClient
   def initialize
     twitter_config = YAML.load_file('twitter_config.yml')
     Twitter.configure do |config|
-      config.consumer_key = twitter_config.apikey.consumer_key
-      config.consumer_secret = twitter_config.apikey.consumer_secret
-      config.oauth_token = twitter_config.oauth.token
-      config.oauth_token_secret = twitter_config.oauth.token_secret
+      config.consumer_key = twitter_config[:apikey][:consumer_key]
+      config.consumer_secret = twitter_config[:apikey][:consumer_secret]
+      config.oauth_token = twitter_config[:oauth][:token]
+      config.oauth_token_secret = twitter_config[:oauth][:token_secret]
     end
     @client = Twitter::Client.new    
   end
@@ -27,8 +27,6 @@ class TwitterClient
   
   def find_tweets_at_fwdbot
     search = Twitter::Search.new
-    tweets = search.to("fwdbot")
-    search.clear
-    tweets
+    search.to("fwdbot")
   end
 end

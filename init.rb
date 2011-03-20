@@ -6,30 +6,30 @@ client = TwitterClient.new
 
 while true do
   tweets = client.find_tweets_at_fwdbot
-  tweets.map{|t| [t.text.downcase, "@#{t.from}"]}.each do |tweet, from|
+  tweets.map{|t| [t.text.downcase, "@#{t.from_user}"]}.each do |tweet, from|
     if (tweet.include?("forward"))
-      robot.forward
-      client.update("Moving forward", from)
+      robot.move_forward
+      client.tweet_update("Moving forward", from)
     end
     if (tweet.include?("backward"))
-      robot.backward
-      client.update("Moving backward", from)
+      robot.move_backward
+      client.tweet_update("Moving backward", from)
     end
     if (tweet.include?("left"))
-      robot.left
-      client.update("Turning left", from)
+      robot.turn_left
+      client.tweet_update("Turning left", from)
     end
     if (tweet.include?("right"))
-      robot.right
-      client.update("Turning right", from)
+      robot.turn_right
+      client.tweet_update("Turning right", from)
     end
     if (tweet.include?("hard left"))
       robot.hard_left
-      client.update("Making a hard left", from)
+      client.tweet_update("Making a hard left", from)
     end  
     if (tweet.include?("hard right"))
       robot.hard_right
-      client.update("Making a hard right", from)
+      client.tweet_update("Making a hard right", from)
     end
   end
   sleep 5
