@@ -13,7 +13,7 @@ class TwitterClient
     @client = Twitter::Client.new    
   end
 
-  def tweet_update(from, action)
+  def tweet_update(action, from)
     update_messages = ["#{action} as commanded by #{from}",
                        "By your command, #{from}. #{action}",
                        "Acknowledged, #{from}. #{action}",
