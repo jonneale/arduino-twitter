@@ -1,1 +1,2 @@
-Small application which searches Twitter for mentions of fwdbot, parses messages and sends them to an Arduino chip which converts them into motor signals. Requires a Twitter API config file which is not in the project
+Small application which searches Twitter for mentions of fwdbot, parses messages and sends them to an Arduino chip which converts them into motor signals. Requires a Twitter API config file which is not in the project.
+Run enable-tbdd for more #winning
