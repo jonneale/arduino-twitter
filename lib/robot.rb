@@ -1,5 +1,3 @@
-require 'serialport'
-
 class Robot
   
   FORWARD = 'f'
