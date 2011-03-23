@@ -17,19 +17,19 @@ class Robot
     @sp = SerialPort.new(port_str, baud_rate, data_bits, stop_bits, parity)
   end
   
-  def move_forward()
+  def forward()
     @sp.write(FORWARD)
   end
 
-  def move_backward()
+  def backward()
     @sp.write(BACKWARD)
   end
 
-  def turn_left()
+  def left()
     @sp.write(LEFT)
   end
 
-  def turn_right()
+  def right()
     @sp.write(RIGHT)
   end
 
