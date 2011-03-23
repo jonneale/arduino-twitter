@@ -13,16 +13,11 @@ while true do
   puts "------------"
   puts tweets.inspect
   
-  tweets.each do |tweet|
-    
-  end
-  
   tweets.map{|t| [t.text.downcase.split, "@#{t.from_user}", t.id]}.each do |tweet_words, from, id|
-    tweet_words.each do |word|
+    tweet_words.each do |tw|
       if (robot.respond_to?(tw))
         robot.send(tw)
         client.tweet_update("Moving #{tw}", from, id)
-        sleep 1
       end
     end
   end

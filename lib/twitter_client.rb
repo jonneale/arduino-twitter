@@ -20,21 +20,21 @@ class TwitterClient
                        "I often think maybe this is robot hell. #{action} thanks to #{from}",
                        "#{action} on #{from}'s orders.",
                        "Understood, #{from}. #{action}. End of line"]
-    @client.update("#{update_messages[((rand * update_messages.length) - 1).to_i]} ##{id.to_s}")
-  end
-  
-  def last_tweet_id
-    @twitter_config[:lasttweet]
-  end
-  
-  def last_tweet_id=(value)
-    @twitter_config[:lasttweet] = value
+    tweet_sent = false
+    while(!tweet_sent)
+      begin
+        @client.update("#{update_messages[rand(update_messages.size)]} ##{id.to_s}")
+        tweet_sent = true
+      rescue Twitter::Forbidden(e)
+        puts e
+      end
+    end
   end
   
   def find_tweets_at_fwdbot
     user = Twitter.user("fwdbot")
     search = Twitter::Search.new   
-    result = search.to("fwdbot").since_id(user.status.id).to_a
+    result = search.to("fwdbot").since_id(user.status.id).fetch
     search.clear
     result
   end
