@@ -17,7 +17,7 @@ class TwitterClient
                        "Acknowledged, #{from}. #{action}",
                        "#{action}, because #{from} wills it",
                        "#{from} commands, and I obey. #{action}",
-                       "I often think maybe this is robot hell. #{action} thanks to #{from}",
+                       "#{action} thanks to #{from}",
                        "#{action} on #{from}'s orders.",
                        "Understood, #{from}. #{action}. End of line"]
     tweet_sent = false
@@ -29,6 +29,10 @@ class TwitterClient
         puts e
       end
     end
+  end
+  
+  def tweet_failed(from)
+    @client.update("Sorry, @#{from}. I didn't understand you. Please include either forward, backward, left, right or dance in your tweet")
   end
   
   def find_tweets_at_fwdbot

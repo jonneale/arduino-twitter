@@ -4,6 +4,7 @@ class Robot
   BACKWARD = 'b'
   LEFT = 'l'
   RIGHT = 'r'
+  DANCE = 'd'
   HARDLEFT = 'a'
   HARDRIGHT = 'c'
   
@@ -31,6 +32,10 @@ class Robot
 
   def right()
     @sp.write(RIGHT)
+  end
+  
+  def dance()
+    @sp.write(DANCE)
   end
 
   def hard_right()
