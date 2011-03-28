@@ -25,7 +25,7 @@ while true do
       end
       client.tweet_failed unless tweet_sent
     end
-  rescue Exception => e
+  rescue Twitter::Error => e
     puts e
     sleep 5
   end
