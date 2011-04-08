@@ -23,10 +23,10 @@ while true do
           client.tweet_update("Moving #{tw}", from, id)
         end
       end
-      client.tweet_failed unless tweet_sent
+      client.tweet_failed(from, id) unless tweet_sent
     end
   rescue Twitter::Error => e
     puts e
-    sleep 5
+    sleep 2
   end
 end

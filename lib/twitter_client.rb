@@ -31,8 +31,8 @@ class TwitterClient
     end
   end
   
-  def tweet_failed(from)
-    @client.update("Sorry, #{from}. I didn't understand you. Please include either forward, backward, left, right or dance in your tweet")
+  def tweet_failed(from, id)
+    @client.update("Sorry, #{from}. I didn't understand you. Legal commands are forward, backward, left, right or dance ##{id.to_s}")
   end
   
   def find_tweets_at_fwdbot

@@ -20,6 +20,8 @@ class Robot
   
   def forward()
     @sp.write(FORWARD)
+    
+    #
   end
 
   def backward()
